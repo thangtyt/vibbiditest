@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link href="/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/bootstrap-3.3.7-dist/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+    <form class="form-signin" action="/register" method="post">
+        <h3 class="form-signin-heading">Please register new user</h3>
+        <label for="fullname" class="sr-only">Full Name</label>
+        <input type="text" name="full_name" class="form-control" value="{{ user.full_name }}" placeholder="Full name" required autofocus>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="email" value="{{ user.email }}" class="form-control" placeholder="Email address" required >
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" value="{{ user.password }}" name="password" class="form-control" placeholder="Password" required>
+        <button class="btn btn-primary" type="submit">Sign up</button>
+        <button class="btn btn-default" type="reset">Reset</button>
+        <a class="btn btn-warning" href="/login" style="float: right">login</a>
+        {% if error %}
+            <h3 style="color: red">{{ error }}</h3>
+        {% endif %}
+    </form>
+
+</div>
+</body>
+</html>

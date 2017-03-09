@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="author" content="thangnv">
+    <title>Innovatube Test</title>
+    <!-- Bootstrap core CSS -->
+    <link href="/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom styles for this template -->
+    <link href="/bootstrap-3.3.7-dist/css/style.css" rel="stylesheet"/>
+
+    <script src="/plugins/jquery-3.1.1.js"></script>
+    {% block cssExtend %}
+    {% endblock %}
+    {% block jsExtend %}
+    {% endblock %}
+</head>
+
+<body>
+
+<div class="container">
+    <div class="masthead">
+        <h3 class="text-muted">{{ title }}</h3>
+        <nav>
+            <ul class="nav nav-justified">
+                <li{% if menu == 'import' %} class="active"{% endif %}>
+                    <a href="/">Import File CSV</a>
+                </li>
+                <li{% if menu == 'list_videos' %} class="active"{% endif %}>
+                    <a href="/user/listVideos">List Videos</a>
+                </li>
+                <li{% if menu == 'list_collections' %} class="active"{% endif %}>
+                    <a href="/user/listCollections">List Collections</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Site footer -->
+    <footer class="footer">
+        <div class="col-sm-6"><p>Hello : {{ user.full_name }}</p></div>
+        <div class="col-sm-6 text-right"><p class=""> <a href="/logout">Logout</a></p></div>
+
+
+    </footer>
+
+</div> <!-- /container -->
+
+</body>
+</html>
+
+
+
+

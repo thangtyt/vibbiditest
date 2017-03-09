@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% block content %}
+    <h3 style="color:red" id="error"></h3>
+    <div id="dropzone">
+        <form action="/uploadFile"
+              class="dropzone"
+              id="mydropzone">
+        </form>
+    </div>
+    <!-- HTML heavily inspired by http://blueimp.github.io/jQuery-File-Upload/ -->
+{% endblock %}
+{% block jsExtend %}
+    <script src="plugins/dropzonejs/dropzone.js"></script>
+    <script>
+        Dropzone.autoDiscover = false;
+        Dropzone.options.mydropzone = {
+            accept: function(file, done) {
+                if (file.type != "text/csv") {
+                    this.removeFile(file);
+                    $('#error').text('Please only choose csv file !');
+                }
+                else { done(); }
+            }
+        }
+        window.onload = function() {
+
+            var MyDropzone = new Dropzone('#mydropzone',{
+                url : '/uploadFile',
+                method: 'post',
+                parallelUploads : 1,
+                maxFilesize: 10,
+
+                success: function () {
+                    window.location.href = '/user/listVideos'
+                }
+            })
+        };
+
+    </script>
+{% endblock %}

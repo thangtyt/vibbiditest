@@ -12,6 +12,7 @@
                     <th>Collection</th>
                     <th>Genre</th>
                     <th>Tagline</th>
+                    <th>Url</th>
                 </tr>
                 </thead>
                 <tfoot>
@@ -22,6 +23,7 @@
                     <th>Collection</th>
                     <th>Genre</th>
                     <th>Tagline</th>
+                    <th>Url</th>
                 </tr>
                 </tfoot>
                 <tbody>
@@ -34,6 +36,7 @@
                             <td>{{ video['collection.name'] }}</td>
                             <td>{{ video['genre.name'] }}</td>
                             <td>{{ video.tagline }}</td>
+                            <td><a class="btn btn-default" target="_blank" href="{{ video.url }}">View</a></td>
                         </tr>
                     {% endfor %}
                 {% endif %}
